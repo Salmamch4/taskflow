@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {}
+export class Header {
+  title = 'TaskFlow';
+  canDelete = false;
+
+  rename(){
+    this.title = 'Mes taches';
+  }
+}
