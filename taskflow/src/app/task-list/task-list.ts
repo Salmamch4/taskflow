@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
+import { DatePipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-task-list',
-  imports: [],
+  imports: [DatePipe, UpperCasePipe],
   templateUrl: './task-list.html',
-  styleUrl: './task-list.scss',
+  styleUrl: './task-list.scss'
 })
 export class TaskList {
   tasks = [
-    {id:1, title:'lire le cour angular'},
-    {id:2, title:'installer le CLi'},
-    {id:3, title:'creer taskflow'},
+    { id: 1, title: 'Lire le cours Angular', dueDate: '2026-11-15' },
+    { id: 2, title: 'Installer le CLI', dueDate: '2026-11-16' },
+    { id: 3, title: 'Créer TaskFlow', dueDate: '2026-11-20' }
   ];
 
-  clear(){
-    this.tasks=[];
+  clear() {
+    this.tasks = [];
   }
 }
