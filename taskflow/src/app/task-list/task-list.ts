@@ -1,10 +1,10 @@
 import { Component, signal, computed } from '@angular/core';
-import { DatePipe, UpperCasePipe } from '@angular/common';
 import { Task } from '../models/task.model';
+import { TaskCard } from '../task-card/task-card';
 
 @Component({
   selector: 'app-task-list',
-  imports: [DatePipe, UpperCasePipe],
+  imports: [TaskCard],
   templateUrl: './task-list.html',
   styleUrl: './task-list.scss'
 })
@@ -29,5 +29,11 @@ export class TaskList {
 
   clear() {
     this.tasks.set([]);
+  }
+
+  onCompleted(id: number) {
+    this.tasks.update(items =>
+      items.map(t => t.id === id ? { ...t, completed: true } : t)
+    );
   }
 }

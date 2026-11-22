@@ -1,0 +1,9 @@
+<div class="card">
+  <h3>{{ task().title | uppercase }}</h3>
+  <p>Priorité : {{ task().priority }}</p>
+  @if (task().dueDate) {
+    <p>Échéance : {{ task().dueDate | date:'dd/MM/yyyy' }}</p>
+  }
+  <p>{{ task().completed ? 'Terminée ✔' : 'À faire' }}</p>
+  <button (click)="markDone()" [disabled]="task().completed">Terminer</button>
+</div>
